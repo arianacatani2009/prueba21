@@ -1,8 +1,12 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
 
 public class datoss extends javax.swing.JFrame {
+    JPanel jpanel = (JPanel) this.getContentPane();
+    JTextField jtextfield = new JTextField();
     private JPanel Jpanel;
     private JTextField textApellido;
     private JTextField textCedula;
@@ -30,20 +34,21 @@ public class datoss extends javax.swing.JFrame {
     private JLabel ColorFavorito;
     private JLabel Casado;
 
-
+    String file_dir = "data.dat";
+    datoss dato[] = new datoss[6];
 
     public datoss() {
         ElegirAño.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for(int i=1950;i<2023;i++){
-                    ElegirAño.addItem(""+i);
+                for (int i = 1950; i < 2023; i++) {
+                    ElegirAño.addItem("" + i);
                 }
             }
         });
     }
     public static void main (String[]args){
-        JFrame frame = new JFrame("Calculadora");
+        JFrame frame = new JFrame("Datos");
         frame.setContentPane(new datoss().Jpanel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.pack();
